@@ -141,7 +141,7 @@ describe('TimePicker', () => {
     expect(secondsDom).toBeUndefined()
   })
 
-  it('event change, focus, blur', async () => {
+  it.only('event change, focus, blur', async () => {
     const changeHandler = jest.fn()
     const focusHandler = jest.fn()
     const blurHandler = jest.fn()
@@ -166,8 +166,8 @@ describe('TimePicker', () => {
     })
 
     const input = wrapper.find('input')
-    input.trigger('focus')
     console.log('set focus')
+    input.trigger('focus')
     await nextTick()
     expect(focusHandler).toHaveBeenCalledTimes(1)
     console.log('-----')

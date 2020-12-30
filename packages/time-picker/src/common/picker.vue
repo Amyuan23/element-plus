@@ -251,8 +251,10 @@ export default defineComponent({
       emitChange(result)
     }
     const handleFocus = e => {
+      console.log('handleFocus', !!props.readonly, !!pickerDisabled.value)
       if (props.readonly || pickerDisabled.value) return
       pickerVisible.value = true
+      console.log('emit focus')
       ctx.emit('focus', e)
     }
 
