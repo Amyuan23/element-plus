@@ -156,6 +156,7 @@ describe('TimePicker', () => {
           return changeHandler(e)
         },
         onFocus(e) {
+          console.log('e: ', e)
           return focusHandler(e)
         },
         onBlur(e) {
@@ -166,8 +167,10 @@ describe('TimePicker', () => {
 
     const input = wrapper.find('input')
     input.trigger('focus')
+    console.log('set focus')
     await nextTick()
     expect(focusHandler).toHaveBeenCalledTimes(1)
+    console.log('-----')
     const list = document.querySelectorAll('.el-time-spinner__list')
     const hoursEl = list[0]
     const hourEl = hoursEl.querySelectorAll('.el-time-spinner__item')[4] as any
